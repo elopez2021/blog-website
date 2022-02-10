@@ -23,7 +23,7 @@
         <!--navigation----------------------------->
         <div class="navigation">
             <!--logo---------->
-            <a href="index.html" class="logo">
+            <a href="crud/index.php" class="logo">
                 <i class="fas fa-blog"></i> Blog
             </a>
             <!--post-filter---------->
