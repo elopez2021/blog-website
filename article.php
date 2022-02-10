@@ -99,7 +99,7 @@ if(isset($_GET['watch'])){
 
 <!--footer------------------------------------->
 <footer>
-<span class="copyright">Copyright 2021 - GoingToInternet</span>
+<span class="copyright">Copyright 2021 - Blog</span>
 <!--social-links------->
 <div class="footer-social">
     <a href="#"><i class="fab fa-facebook-f"></i></a>
