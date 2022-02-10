@@ -106,6 +106,10 @@ $result=$stmt->get_result();
             <label for="avatar">Select Image</label>
             <input type="file" name="image" class="form-control avatar" required>
           </div>
+          <div class="my-2">
+            <label for="avatar">Created By</label>
+            <input type="text" name="created_by" class="form-control avatar" required>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -139,6 +143,7 @@ $result=$stmt->get_result();
                 <th>Content</th>
                 <th>Image</th>
                 <th>Category</th>
+                <th>Created by</th>
                 <th>Date</th>
                 <th>Action</th>
               </tr>
@@ -153,6 +158,7 @@ $result=$stmt->get_result();
                 <td><?= $row['content']; ?></td>
                 <td><img src="<?= $row['image']; ?>" width="50" class="img rounded-circle"></td>
                 <td><?= $row['category']; ?></td>
+                <td><?= $row['created_by']; ?></td>
                 <td><?= $row['date']; ?></td>
                 <td>
 

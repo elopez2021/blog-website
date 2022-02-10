@@ -7,15 +7,16 @@ if(isset($_POST['add'])){
     $content=$_POST['content'];
     $image=$_POST['image'];
     $category=$_POST['category'];
+    $created_by=$_POST['created_by'];
 
     $idUnico = time();
     $photo= $idUnico . "-" . $_FILES['image']['name']; 
     //$photo=$_FILES['image']['name'];
     $file_store="uploads/".$photo;
 
-    $query="INSERT INTO post(title,content,image,category)VALUES(?,?,?,?)";
+    $query="INSERT INTO post(title,content,image,category,created_by)VALUES(?,?,?,?,?)";
     $stmt=$conn->prepare($query);
-    $stmt->bind_param("ssss",$title,$content,$file_store,$category);
+    $stmt->bind_param("sssss",$title,$content,$file_store,$category,$created_by);
     $stmt->execute();
     move_uploaded_file($_FILES['image']['tmp_name'], $file_store);
     
