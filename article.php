@@ -57,12 +57,8 @@
         <div class="article-img">
             <img alt="img" src="images/app.png"/>
         </div>
-        <!--ad-------------------------------------->
-        <div class="content-ad">
-            <a href="#">
-                <img alt="ads" src="images/ad-home.png">
-            </a>
-        </div>
+
+       
         <!--text----------------------------------->
         <div class="article-text">
             <!--box-1-------------->
