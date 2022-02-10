@@ -1,7 +1,3 @@
-<?php
-  include 'config.php';
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,315 +35,53 @@
                 </label>
                 <!--filter--------->
                 <ul class="blog-filter">
-                    <li class="list blog-filter-active" data-filter="all">All</li>
-                    <li class="list" data-filter="web">Web Design</li>
-                    <li class="list" data-filter="app">App Design</li>
-                    <li class="list" data-filter="new">New</li>
+                    <li class="list blog-filter-active" data-filter="all">Todo</li>
+                    <li class="list" data-filter="dispo-pc">Dispostivos de PC</li>
+                    <li class="list" data-filter="dispo-laptop">Dispositivos de Laptop</li>
+                    <li class="list" data-filter="ram">Tipos de RAM</li>
+                    <li class="list" data-filter="disco-duro">Tipos de Disco Duro</li>
+                    <li class="list" data-filter="micro-pro">Tipos de Microprocesadores</li>
                 </ul>
             </nav>
         </div>
+      
         <!--container------------------------------->
         <div class="blog-container">
-            <!--box-1----------------------------------------------->
-            <div class="blog-box app">
+        <?php
+            include 'config.php';
+            $stmt = $conn->prepare("SELECT * FROM post");
+            $stmt->execute();
+            $result = $stmt->get_result();
+            while ($row = $result->fetch_assoc()):
+        ?>
+
+        <!--boxes----------------------------------------------->
+        <div class="blog-box <?= $row['category']?>">
                 <!--img----->
                 <div class="blog-img">
-                    <img alt="img" src="images/b-1.jpg">
-                    <span class="category">App</span>
+                    <img alt="img" src="crud/<?= $row['image']?>">
                 </div>
                 <!--text---->
                 <div class="blog-text">
                     <!--title------------------------>
-                    <a href="article.html">
-                        <strong>How To Create Ramdan Time App Design</strong>
+                    <a href="article.php?watch=<?= $row['id']; ?>">
+                        <strong><?= $row['title']?></strong>
                     </a>
                     <!--time-and-category------------->
                     <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
+                        <span class="blog-category"><?= $row['category']?></span>
+                        <span class="published-time"><?= $row['date']?></span>
                     </div>
                     <!--publisher-profile------------->
                     <div class="publisher-profile">
                         <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
+                        <span><?= $row['created_by']?></span>
                     </div>
                 </div>
             </div>
-            <!--box-2---------------------------------------->
-            <div class="blog-box web">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-2.jpg">
-                    <span class="category">Web</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">Web Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box-3-------------------------------------------------->
-            <div class="blog-box new">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-3.jpg">
-                    <span class="category">New</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box--4---------------------------------------------------------->
-            <div class="blog-box app">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-4.jpg">
-                    <span class="category">App</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box--5----------------------------------------->
-            <div class="blog-box web">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-5.jpg">
-                    <span class="category">Web</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">Web Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box--6--------------------------------->
-            <div class="blog-box app">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-6.jpg">
-                    <span class="category">App</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box--7---------------------------------------->
-            <div class="blog-box new">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-7.jpg">
-                    <span class="category">New</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box-9------------------------------------------>
-            <div class="blog-box app">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-8.jpg">
-                    <span class="category">App</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box---9------------------------------->
-            <div class="blog-box app">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-3.jpg">
-                    <span class="category">App</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box-10--------------------------------------->
-            <div class="blog-box web">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-6.jpg">
-                    <span class="category">Web</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box--11---------------------------------->
-            <div class="blog-box app">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-4.jpg">
-                    <span class="category">App</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">App Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
-            <!--box-12---------------------------------->
-            <div class="blog-box web">
-                <!--img----->
-                <div class="blog-img">
-                    <img alt="img" src="images/b-1.jpg">
-                    <span class="category">Web</span>
-                </div>
-                <!--text---->
-                <div class="blog-text">
-                    <!--title------------------------>
-                    <a href="#">
-                        <strong>How To Create Ramdan Time App Design</strong>
-                    </a>
-                    <!--time-and-category------------->
-                    <div class="category-time">
-                        <span class="blog-category">Web Design</span>
-                        <span class="published-time">11-03-2021</span>
-                    </div>
-                    <!--publisher-profile------------->
-                    <div class="publisher-profile">
-                        <img alt="Publisher" src="images/p-1.png">
-                        <span>Touseeq Ijaz</span>
-                    </div>
-                </div>
-            </div>
+
+        <?php endwhile; ?>
+           
         </div>
      
     </section>

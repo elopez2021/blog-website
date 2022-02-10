@@ -1,3 +1,29 @@
+<?php
+require_once 'config.php';
+
+if(isset($_GET['watch'])){
+    $id=$_GET['watch'];
+
+    $query="SELECT * FROM post WHERE id=?";
+    $stmt=$conn->prepare($query);
+    $stmt->bind_param("i",$id);
+    $stmt->execute();
+    $result=$stmt->get_result();
+    $row=$result->fetch_assoc();
+
+    $id=$row['id'];
+    $title=$row['title'];
+    $content=$row['content'];
+    $image=$row['image'];
+    $category=$row['category'];
+    $created_by=$row['created_by'];
+    $date=$row['date'];
+    
+ 
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,52 +64,34 @@
     <div class="article-container">
         <!--main-heading------------------->
         <div class="article-main-heading">
-            <h1>How to Create Ramdan Time App Design</h1>
+            <h1><?= $title;?></h1>
         </div>
         <!--publisher-name-and-date-------->
         <div class="by-date">
             <!--name------->
             <div class="article-by">
                 <i class="far fa-user"></i>
-                <span>Touseeq Ijaz</span>
+                <span><?= $created_by;?></span>
             </div>
             <!--date------->
             <div class="article-date">
                 <i class="far fa-clock"></i>
-                <p><span>20</span>-<span>05</span>-<span>2021</span></p>
+                <p><?= $date;?></p>
             </div>
         </div>
         <!--article-img--------------------------------->
         <div class="article-img">
-            <img alt="img" src="images/app.png"/>
+            <img alt="img" src="crud/<?= $row['image']?>"/>
         </div>
 
        
         <!--text----------------------------------->
         <div class="article-text">
             <!--box-1-------------->
-            <div class="article-text-box">
-                <strong>Heading 1</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis aperiam, ipsa quis accusamus, doloremque sit explicabo error, earum aut fugiat! Non a quidem molestias soluta alias quasi dignissimos veniam!</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis esse, ratione natus velit minus, labore vero distinctio error nulla similique accusantium. Sapiente dolores ipsam nesciunt ducimus soluta iusto, tempore dolorem?</p>
+            <div style="text-align:justify">
+                <p><?= $content;?></p>
             </div>
-            <!--box-1-------------->
-            <div class="article-text-box">
-                <strong>Heading 2</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis aperiam, ipsa quis accusamus, doloremque sit explicabo error, earum aut fugiat! Non a quidem molestias soluta alias quasi dignissimos veniam!</p>
-            </div>
-            <!--box-1-------------->
-            <div class="article-text-box">
-                <strong>Heading 3</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis aperiam, ipsa quis accusamus, doloremque sit explicabo error, earum aut fugiat! Non a quidem molestias soluta alias quasi dignissimos veniam!</p>
-
-            </div>
-            <!--box-1-------------->
-            <div class="article-text-box">
-                <strong>Heading 4</strong>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis aperiam, ipsa quis accusamus, doloremque sit explicabo error, earum aut fugiat! Non a quidem molestias soluta alias quasi dignissimos veniam!</p>
-                
-            </div>
+            
         </div>
     </div>
 

@@ -93,12 +93,10 @@ $result=$stmt->get_result();
             <label for="type">Category</label>
             <select class="form-control type" name="category" id="type" required>
               <option selected>----Select category----</option>
-              <option value="externo-pc">Dispostivo externo de PC</option>
-              <option value="interno-pc">Dispositivo interno de PC</option>
-              <option value="externo-laptop">Dispositivo externo de Laptop</option>
-              <option value="interno-laptop">Dispositivo interno de Laptop</option>
+              <option value="dispo-pc">Dispositivos de PC</option>
+              <option value="dispo-laptop">Dispositivos de Laptop</option>
               <option value="ram">Tipos de RAM</option>
-              <option value="disco">Tipos de Disco Duro</option>
+              <option value="disco-duro">Tipos de Disco Duro</option>
               <option value="micro-pro">Tipos de Microprocesadores</option>
             </select>
           </div>
